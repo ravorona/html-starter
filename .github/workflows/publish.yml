@@ -1,0 +1,28 @@
+name: Publish HTML Starter
+
+on:
+    push:
+        tags:
+            - "**"
+
+jobs:
+    publish:
+        name: Publish package
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x]
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v1
+
+            - name: Create release
+              uses: actions/create-release@master
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ github.ref }}
+                  draft: false
+                  prerelease: false
