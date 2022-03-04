@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import path from 'path'
 import { defineConfig, ServerOptions } from 'vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import nunjucks from 'vite-plugin-nunjucks'
 
 const server: ServerOptions = { open: true }
 
@@ -20,11 +22,22 @@ export default defineConfig({
             '@scripts': path.resolve(__dirname, 'src/scripts'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@styles': path.resolve(__dirname, 'src/styles'),
-            '@types': path.resolve(__dirname, 'src/types')
+            '@types': path.resolve(__dirname, 'src/types'),
+            '@views': path.resolve(__dirname, 'src/views')
         }
     },
     build: {
-        sourcemap: true
+        sourcemap: true,
+        rollupOptions: {
+            input: {
+                index: path.resolve(__dirname, 'index.html'),
+                about: path.resolve(__dirname, 'about.html')
+            },
+            output: {
+                sourcemap: true
+            }
+        }
     },
+    plugins: [nunjucks(), createHtmlPlugin()],
     server
 })

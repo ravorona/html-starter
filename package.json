@@ -1,8 +1,19 @@
 {
-  "name": "boilerplate-static",
-  "private": true,
+  "name": "html-starter",
   "version": "0.0.0",
-  "type": "module",
+  "description": "HTML project starter kit",
+  "repository": "git@github.com:ravorona/html-boilerplate.git",
+  "author": "яαvoroηα <h.rakotonjanahary@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "ravorona",
+    "html",
+    "boilerplate",
+    "vite"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -24,12 +35,13 @@
     "postcss-inline-svg": "^5.0.0",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.5.1",
+    "sass": "^1.49.9",
     "stylelint": "^14.5.3",
     "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.5.5",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "vite-plugin-html": "^3.1.0",
+    "vite-plugin-nunjucks": "^0.1.10"
   },
-  "dependencies": {
-    "sass": "^1.49.9"
-  }
+  "dependencies": {}
 }
