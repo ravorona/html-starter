@@ -1,8 +1,6 @@
 import 'dotenv/config'
 import path from 'path'
 import { defineConfig, ServerOptions } from 'vite'
-import { createHtmlPlugin } from 'vite-plugin-html'
-import nunjucks from 'vite-plugin-nunjucks'
 
 const server: ServerOptions = { open: true }
 
@@ -38,6 +36,5 @@ export default defineConfig({
             }
         }
     },
-    plugins: [nunjucks(), createHtmlPlugin()],
     server
 })
