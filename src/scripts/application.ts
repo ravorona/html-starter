@@ -22,5 +22,11 @@
 import '@styles/application.scss'
 import Guide from './guide'
 
-Guide.bootstrap()
-Guide.start()
+const env = import.meta.env
+
+console.log('[%s] mode: %s', env.VITE_APP_NAMESPACE, env.MODE)
+
+if (env.DEV) {
+    Guide.bootstrap()
+    Guide.start()
+}
